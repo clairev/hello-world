@@ -1,6 +1,5 @@
-
 import java.util.ArrayList;
-//import java.util.Vector;
+
 
 public class Loft {
 	
@@ -45,14 +44,15 @@ public class Loft {
 	}
 	*/
 	
-	//générer nourriture
+	
 	
 	
 	public void exclureLoft(){
 		for (int i=0; i<demographie; i++) {
 		if (Neuneus.get(i).energie<energiemin){
 		Cimetiere.add(Neuneus.get(i));
-		Neuneus.remove(i);}
+		Neuneus.remove(i);
+		demographie--;}
 		}
 		}
 	
@@ -70,8 +70,8 @@ public class Loft {
 	}
 	
 
-	public void initialiser(int population){ //nombre *moyen* d'erratiques dans le jeu à l'initialisation
-		double moy = ((double) population)/((double) largeur*hauteur);
+	public void initialiser_erratique(int population_erratique){ //nombre *moyen* d'erratiques dans le jeu à l'initialisation
+		double moy = ((double) population_erratique)/((double) largeur*hauteur);
 		for (int i=0;i<largeur;i++){ //ajout des erratiques dans le jeu
 			for (int j =0; j<hauteur; j++) {
 				double rand = Math.random();
@@ -85,6 +85,51 @@ public class Loft {
 		}
 	}
 	
+	public void initialiser_lapin(int population_lapin){ //nombre *moyen* d'erratiques dans le jeu à l'initialisation
+		double moy = ((double) population_lapin)/((double) largeur*hauteur);
+		for (int i=0;i<largeur;i++){ //ajout des erratiques dans le jeu
+			for (int j =0; j<hauteur; j++) {
+				double rand = Math.random();
+				if (rand < moy) {
+					Lapin la = new Lapin (10,i,j,this);
+					Neuneus.add(la);
+					plateau_neuneus[i][j] ++;
+					demographie++;
+				}
+			}
+		}
+	}
+	
+	public void initialiser_vorace(int population_vorace){ //nombre *moyen* d'erratiques dans le jeu à l'initialisation
+		double moy = ((double) population_vorace)/((double) largeur*hauteur);
+		for (int i=0;i<largeur;i++){ //ajout des erratiques dans le jeu
+			for (int j =0; j<hauteur; j++) {
+				double rand = Math.random();
+				if (rand < moy) {
+					Vorace v = new Vorace (10,i,j,this);
+					Neuneus.add(v);
+					plateau_neuneus[i][j] ++;
+					demographie++;
+				}
+			}
+		}
+	}
+	
+	
+	public void initialiser_cannibale(int population_cannibale){ //nombre *moyen* d'erratiques dans le jeu à l'initialisation
+		double moy = ((double) population_cannibale)/((double) largeur*hauteur);
+		for (int i=0;i<largeur;i++){ //ajout des erratiques dans le jeu
+			for (int j =0; j<hauteur; j++) {
+				double rand = Math.random();
+				if (rand < moy) {
+					Cannibale ca = new Cannibale (10,i,j,this);
+					Neuneus.add(v);
+					plateau_neuneus[i][j] ++;
+					demographie++;
+				}
+			}
+		}
+	}
 }
 
 

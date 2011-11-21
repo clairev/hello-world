@@ -7,16 +7,21 @@ public class Jeu {
 		Loft terrain = new Loft ();
 
 		int population = 100;
+		int quantite = 10;
 
 		terrain.initialiser(population);
+		
+		terrain.generernourriture(quantite);
 
 		while (terrain.vieloft != 0){
-			for (int i=0;i<terrain.Neuneus.size();i++){ //on parcourt la liste de neuneus
+			
+			for (int i=0;i<terrain.Neuneus.size();i++){//on parcourt la liste de neuneus
 				terrain.Neuneus.get(i).sedeplacer(); //le neuneu se dŽplace et renvoie s'il est ou pas dans la case d'un partenaire
-				if (reproduction==true) terrain.Neuneus.get(i).sereproduire();
+				terrain.Neuneus.get(i).sereproduire(); // reproduction que s'il y a deux neuneus sur la case (de mme espce)
 				terrain.Neuneus.get(i).manger();
 				terrain.exclureLoft();
 			}
+			
 			terrain.vieloft-=1;
 		}
 

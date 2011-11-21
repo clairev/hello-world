@@ -2,8 +2,8 @@
 public class Lapin extends Neuneu {
 
 		
-	public Lapin(int e, int ab, int or, Loft lo, int vdsr) {
-		super(e, ab, or, lo, vdsr);
+	public Lapin(int e, int ab, int or, Loft lo) {
+		super(e, ab, or, lo);
 		type = "lapin";
 	}
 
