@@ -1,7 +1,13 @@
+package com.objet.lofteurs;
+
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 
+import com.objet.lofteurs.ObjetDessinable;
 
-public class Loft {
+
+public class Loft implements ObjetDessinable{
 	
 	public int hauteur;
 	public int largeur;
@@ -15,6 +21,7 @@ public class Loft {
 	public Nourriture n;
 	public ArrayList<Neuneu> Cimetiere = new ArrayList<Neuneu>();
 	public ArrayList<Neuneu> Neuneus = new ArrayList<Neuneu>();
+	public ZoneGraphique zone;
 	
 	public int [] [] plateau_neuneus = new int[largeur][hauteur]; // contient le nombre de neuneus dans une case
 	
@@ -90,10 +97,10 @@ public class Loft {
 		for (int i=0;i<largeur;i++){ //ajout des erratiques dans le jeu
 			for (int j =0; j<hauteur; j++) {
 				double rand = Math.random();
-				if (rand < moy) {
-					Lapin la = new Lapin (10,i,j,this);
+				if (rand < moy && plateau_neuneus[i][j]==0) {
+					Lapin la = new Lapin (10,i,j,this);//pb s'il y a dŽjˆ un erratique sur la case
 					Neuneus.add(la);
-					plateau_neuneus[i][j] ++;
+					plateau_neuneus[i][j] ++; 
 					demographie++;
 				}
 			}
@@ -123,14 +130,32 @@ public class Loft {
 				double rand = Math.random();
 				if (rand < moy) {
 					Cannibale ca = new Cannibale (10,i,j,this);
-					Neuneus.add(v);
+					Neuneus.add(ca);
 					plateau_neuneus[i][j] ++;
 					demographie++;
 				}
 			}
 		}
 	}
-}
+	
+	
+	public void dessinerObjet(Graphics g) {
+		this.drawTable(g);
+
+		}
+
+		public void drawTable(Graphics g){
+		g.setColor(Color.white);
+		for (int i=1; i<600;i++){
+		g.drawLine(i*(600/hauteur),0,i*(600/hauteur), 600*(600/hauteur));}
+
+		for (int j=1; j<600;j++){
+		g.drawLine(0, j*(600/largeur),600*(600/largeur), j*(600/largeur));
+		}
+
+		}
+		}
+
 
 
 	

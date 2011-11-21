@@ -1,3 +1,5 @@
+package com.objet.lofteurs;
+
 
 public class Nourriture {
 

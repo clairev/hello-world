@@ -1,3 +1,8 @@
+package com.objet.lofteurs;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
 
 public class Lapin extends Neuneu {
 
@@ -7,6 +12,12 @@ public class Lapin extends Neuneu {
 		type = "lapin";
 	}
 
+	public Lapin (int e, int ab, int or, Loft lo, int vdsr) {
+		super(e, ab, or, lo);
+		vientDeSeReproduire= vdsr = 0;
+	}
+	
+	
 	public void sedeplacer(){
 
 		//ils cherchent surtout un partenaire pour se reproduire
@@ -112,6 +123,14 @@ public class Lapin extends Neuneu {
 
 
 	}
+	
+	
+	public void dessinerObjet(Graphics g){
+		g.setColor(Color.black);
+		//g.drawOval(this.getC().getAbscisse()*(600/this.getL().nbCasesLargeur), this.getC().getOrdonnee()*(600/this.getL().nbCasesHauteur), 10, 10);
+		//g.drawString("X", 25, 25);
+		g.fillOval(this.abscisse*(600/this.l.largeur), this.ordonnee*(600/this.l.hauteur), 600/this.l.largeur, 600/this.l.hauteur);
+		}
 	
 		
 	}

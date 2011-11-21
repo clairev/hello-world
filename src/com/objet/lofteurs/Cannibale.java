@@ -1,3 +1,8 @@
+package com.objet.lofteurs;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
 
 public class Cannibale extends Vorace {
 	
@@ -29,6 +34,13 @@ public class Cannibale extends Vorace {
 
 		super.sedeplacer();
 		}
+		}
+	
+	public void dessinerObjet(Graphics g){
+		g.setColor(Color.yellow);
+		//g.drawOval(this.getC().getAbscisse()*(600/this.getL().nbCasesLargeur), this.getC().getOrdonnee()*(600/this.getL().nbCasesHauteur), 10, 10);
+		//g.drawString("X", 25, 25);
+		g.fillOval(this.abscisse*(600/this.l.largeur), this.ordonnee*(600/this.l.hauteur), 600/this.l.largeur, 600/this.l.hauteur);
 		}
 }
 

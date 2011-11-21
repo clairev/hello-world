@@ -1,3 +1,5 @@
+package com.objet.lofteurs;
+
 import java.awt.Graphics;
 import java.util.LinkedList;
 

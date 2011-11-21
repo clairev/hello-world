@@ -1,5 +1,9 @@
+package com.objet.lofteurs;
 
-public abstract class Neuneu {
+
+
+
+public abstract class Neuneu implements ObjetDessinable {
 
 	public int abscisse;
 	public int ordonnee;
@@ -8,6 +12,7 @@ public abstract class Neuneu {
 	public Loft l;
 	public int vientDeSeReproduire;
 
+
 	
 	public Neuneu (int e, int ab, int or, Loft lo) {
 		abscisse =ab;
@@ -15,6 +20,7 @@ public abstract class Neuneu {
 		energie=e;
 		l = lo;
 		vientDeSeReproduire=100;
+		this.l.zone.ajouterObjet(this);
 	}
 	
 	public Neuneu (int e, int ab, int or, Loft lo, int vdsr) {
@@ -60,7 +66,7 @@ public abstract class Neuneu {
 		if (l.plateau_neuneus[abscisse][ordonnee] > 1 && vientDeSeReproduire > 5) { // alors il y en a au moins 2
 
 		if (type == "lapin") {
-		Lapin nouveau_lapin = new Lapin (energie, abscisse, ordonnee,l, 0);
+		Lapin nouveau_lapin = new Lapin (energie, abscisse, ordonnee,l,0);
 		nouveau_lapin.vientDeSeReproduire=0;
 		l.Neuneus.add(nouveau_lapin);
 		l.demographie++;

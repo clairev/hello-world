@@ -1,3 +1,5 @@
+package com.objet.lofteurs;
+
 public class Jeu {
 
 	public static void main(String args[]){
@@ -6,10 +8,10 @@ public class Jeu {
 
 		Loft terrain = new Loft ();
 
-		int population = 100;
+		int population_erratique = 100;
 		int quantite = 10;
 
-		terrain.initialiser(population);
+		terrain.initialiser_erratique(population_erratique);
 		
 		terrain.generernourriture(quantite);
 
